@@ -1,0 +1,17 @@
+<%=form_with model:@customer,local: true do |form| %>
+    <p>
+        <%=form.label :English_name %> <br>
+        <%=form.text_field :English_name %>
+    </p>
+    <p>
+        <%=form.label :Chinese_name %> <br>
+        <%=form.text_field :Chinese_name %>
+    </p>
+    <p>
+        <%=form.label :description %> <br>
+        <%=form.text_area :description %>
+    </p>
+    <p>
+        <%=form.submit %>
+    </p>
+<% end %>

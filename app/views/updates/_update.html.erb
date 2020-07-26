@@ -1,0 +1,10 @@
+
+    <p>
+        <%= update.comment%>
+    </p>
+    <p>
+        <%= update.happened_time%>
+    </p>
+
+<%= link_to 'Edit update', edit_customer_update_path(@customer, update) %>
+<%= link_to 'Destroy update', [update.customer, update] , method: :delete, data:{confirm: 'Are you sure?'} %>

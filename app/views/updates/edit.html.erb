@@ -1,0 +1,13 @@
+<%=form_with(model:@update, url: customer_update_path, local: true) do |form| %>
+    <p>
+        <%= form.label :comment %> <br>
+        <%= form.text_area :comment %>
+    </p>
+    <p>
+        <%= form.label :happened_time %> <br>
+        <%= form.datetime_select :happened_time %>
+    </p>
+    <p>
+        <%=form.submit %>
+    </p>
+<% end %>

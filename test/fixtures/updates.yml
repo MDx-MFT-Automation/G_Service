@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  customer: one
+  update_time: 2020-07-14 23:42:00
+  happened_time: 2020-07-14 23:42:00
+
+two:
+  comment: MyText
+  customer: two
+  update_time: 2020-07-14 23:42:00
+  happened_time: 2020-07-14 23:42:00

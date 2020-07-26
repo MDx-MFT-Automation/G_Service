@@ -1,0 +1,33 @@
+<p>
+    <strong>English Name:</strong>
+    <%= @customer.English_name%>
+</p>
+<p>
+    <strong>Chinese Name:</strong>
+    <%= @customer.Chinese_name%>
+</p>
+<p>
+    <strong>description</strong>
+    <%= @customer.description%>
+</p>
+<%= link_to 'Edit', edit_customer_path(@customer) %>
+<%= link_to 'Back', customers_path %>
+<h1> Update </h1>
+<%= render @customer.updates %>
+
+<h1> Add an update </h1> <br>
+<%= form_with(model:[@customer, @customer.updates.build], local: true) do |form| %>
+    <p>
+        <%= form.label :comment%><br>
+        <%= form.text_area :comment%>
+    </p>
+    <br>
+    <p>
+        <%= form.label :happened_time %>
+        <%= form.datetime_select :happened_time %>
+    </p>
+    <p>
+    <%= form.submit%>
+    
+    </p>
+<% end %>
