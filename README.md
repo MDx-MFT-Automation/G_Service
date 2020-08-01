@@ -1,7 +1,6 @@
-# README
+# G_Service
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## G_Service is an on-line databased which is used by Mr. Yan, Xing-Qi (George) to manage the information related to his current job.
 
 Things you may want to cover:
 
