@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_154200) do
+ActiveRecord::Schema.define(version: 2020_09_03_143503) do
+
+  create_table "customer_groups", force: :cascade do |t|
+    t.string "Customer_Group__Name_English"
+    t.string "Customer_Group__Name_Chinese"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "customer_groups_customers", id: false, force: :cascade do |t|
+    t.integer "customer_group_id", null: false
+    t.integer "customer_id", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "English_name"

@@ -12,6 +12,10 @@
         <%=form.text_area :description %>
     </p>
     <p>
+    <%=form.label :customer_groups %> <br>
+    <%=form.collection_select(:customer_group,CustomerGroup.all,:id,:Customer_Group__Name_English )%>
+    </p>
+    <p>
         <%=form.submit %>
     </p>
 <% end %>

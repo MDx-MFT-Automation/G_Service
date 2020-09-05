@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer group  name english:</strong>
+  <%= @customer_group.Customer_Group__Name_English %>
+</p>
+
+<p>
+  <strong>Customer group  name chinese:</strong>
+  <%= @customer_group.Customer_Group__Name_Chinese %>
+</p>
+
+<%= link_to 'Edit', edit_customer_group_path(@customer_group) %> |
+<%= link_to 'Back', customer_groups_path %>

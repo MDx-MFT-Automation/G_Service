@@ -1,0 +1,27 @@
+<%= form_with(model: customer_group, local: true) do |form| %>
+  <% if customer_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_group.errors.count, "error") %> prohibited this customer_group from being saved:</h2>
+
+      <ul>
+        <% customer_group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Customer_Group__Name_English %>
+    <%= form.text_field :Customer_Group__Name_English %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Customer_Group__Name_Chinese %>
+    <%= form.text_field :Customer_Group__Name_Chinese %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
