@@ -1,0 +1,22 @@
+<%= form_with(model: work_order_type, local: true) do |form| %>
+  <% if work_order_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_order_type.errors.count, "error") %> prohibited this work_order_type from being saved:</h2>
+
+      <ul>
+        <% work_order_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Work_Type_Name %>
+    <%= form.text_field :Work_Type_Name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

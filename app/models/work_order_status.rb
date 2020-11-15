@@ -1,0 +1,2 @@
+class WorkOrderStatus < ApplicationRecord
+end

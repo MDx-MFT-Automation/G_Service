@@ -1,0 +1,2 @@
+module WorkOrderTypesHelper
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material type:</strong>
+  <%= @material.material_type.Description_English %>
+</p>
+
+<p>
+  <strong>Lot or serial number:</strong>
+  <%= @material.Lot_Or_Serial_Number %>
+</p>
+
+<p>
+  <strong>Manufacture date:</strong>
+  <%= @material.Manufacture_Date %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @material.Expiration_Date %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @material.Comment %>
+</p>
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>

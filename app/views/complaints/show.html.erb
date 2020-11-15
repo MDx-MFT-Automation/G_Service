@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sap complaint notification number:</strong>
+  <%= @complaint.SAP_Complaint_Notification_Number %>
+</p>
+
+<p>
+  <strong>Short description:</strong>
+  <%= @complaint.Short_Description %>
+</p>
+
+<p>
+  <strong>Complain status:</strong>
+  <%= @complaint.complain_status_id %>
+</p>
+
+<%= link_to 'Edit', edit_complaint_path(@complaint) %> |
+<%= link_to 'Back', complaints_path %>

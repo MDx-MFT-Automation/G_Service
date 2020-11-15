@@ -1,0 +1,47 @@
+<%= form_with(model: work_order_duration, local: true) do |form| %>
+  <% if work_order_duration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_order_duration.errors.count, "error") %> prohibited this work_order_duration from being saved:</h2>
+
+      <ul>
+        <% work_order_duration.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :work_order_id %>
+    <%= form.collection_select(:work_order_id, WorkOrder.all, :id, :display_number, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_order_duration_type_id %>
+    <%= form.collection_select(:work_order_duration_type_id, WorkOrderDurationType.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Actual_Time %>
+    <%= form.text_field :Actual_Time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Actual_Start_Date %>
+    <%= form.datetime_select :Actual_Start_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Actual_End_Date %>
+    <%= form.datetime_select :Actual_End_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_area :Description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

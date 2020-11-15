@@ -23,6 +23,14 @@ class CustomersController < ApplicationController
   def update
     @customer=Customer.find(params[:id])
 
+    if params[:customer][:customer_gr].nil? 
+      @customer.customer_groups.clear
+    else
+      @customer_groups = CustomerGroup.find(params[:customer][:customer_gr])
+      #render plain: @customer_groups.inspect
+      @customer.customer_groups=@customer_groups
+    end
+
     if @customer.update(customer_params)
       redirect_to @customer
     else

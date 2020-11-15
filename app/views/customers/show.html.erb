@@ -10,6 +10,25 @@
     <strong>description</strong>
     <%= @customer.description%>
 </p>
+<p>
+    <strong>Customer Groups</strong>
+    <% @customer.customer_groups.each do |t|%>
+    <%= link_to t.Customer_Group__Name_Chinese, customer_group_path(t)%>
+    <% end %>
+</p>
+<p>
+    <strong>Customer Contact People</strong>
+    <% @customer.contact_people.each do |t|%>
+    <%= link_to t.display_name,contact_person_path(t) %>
+    <% end %>
+</p>
+<p>
+    <strong>Instruments</strong>
+    <% @customer.instruments.each do |t|%>
+    <%= link_to t.description,instrument_path(t) %> <br>
+    <% end %>
+</p>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %>
 <%= link_to 'Back', customers_path %>
 <h1> Update </h1>

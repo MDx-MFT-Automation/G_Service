@@ -1,0 +1,37 @@
+<%= form_with(model: address, local: true) do |form| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+        <% address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :city_id %>
+    <%= form.grouped_collection_select(:city_id, Province.all, :cities, :Province_Chinese_Name, :id, :City_Chinese_Name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address_English %>
+    <%= form.text_field :Address_English %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address_Chinese %>
+    <%= form.text_field :Address_Chinese %>
+  </div>
+
+  <div class="field">
+  <%= form.label :Instrument %>
+  <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

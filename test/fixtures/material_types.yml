@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Material_Number: MyString
+  Description_English: MyText
+  Description_Chinese: MyText
+  manufacturer: one
+  Price_CLP_RMB: 1.5
+  Price_CLP_USD: 1.5
+  Price_GBP_USD: 1.5
+
+two:
+  Material_Number: MyString
+  Description_English: MyText
+  Description_Chinese: MyText
+  manufacturer: two
+  Price_CLP_RMB: 1.5
+  Price_CLP_USD: 1.5
+  Price_GBP_USD: 1.5

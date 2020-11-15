@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Software name:</strong>
+  <%= @software_version.Software_Name %>
+</p>
+
+<p>
+  <strong>Version number:</strong>
+  <%= @software_version.Version_Number %>
+</p>
+
+<%= link_to 'Edit', edit_software_version_path(@software_version) %> |
+<%= link_to 'Back', software_versions_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Province chinese name:</strong>
+  <%= @province.Province_Chinese_Name %>
+</p>
+
+<p>
+  <strong>Province english name:</strong>
+  <%= @province.Province_English_Name %>
+</p>
+
+<%= link_to 'Edit', edit_province_path(@province) %> |
+<%= link_to 'Back', provinces_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>English family name:</strong>
+  <%= @contact_person.English_Family_Name %>
+</p>
+
+<p>
+  <strong>Chinese Name:</strong>
+  <%= @contact_person.display_name %>
+</p>
+
+<p>
+    <strong>Customers</strong>
+    <% @contact_person.customers.each do |t|%>
+    <%= link_to t.Chinese_name,customer_path(t) %>
+    <% end %>
+</p>
+<p>
+    <strong>Phones</strong>
+    <% @contact_person.phones.each do |t|%>
+    <%= link_to t.Phone_Number,phone_path(t) %>
+    <% end %>
+</p>
+<p>
+    <strong>Emails</strong>
+    <% @contact_person.emails.each do |t|%>
+    <%= link_to t.Email_Address,email_path(t) %>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_contact_person_path(@contact_person) %> |
+<%= link_to 'Back', contact_people_path %>

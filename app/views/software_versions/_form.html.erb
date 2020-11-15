@@ -1,0 +1,27 @@
+<%= form_with(model: software_version, local: true) do |form| %>
+  <% if software_version.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(software_version.errors.count, "error") %> prohibited this software_version from being saved:</h2>
+
+      <ul>
+        <% software_version.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Software_Name %>
+    <%= form.text_field :Software_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Version_Number %>
+    <%= form.text_field :Version_Number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

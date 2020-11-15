@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Material Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material number</th>
+      <th>Description english</th>
+      <th>Description chinese</th>
+      <th>Manufacturer</th>
+      <th>Price clp rmb</th>
+      <th>Price clp usd</th>
+      <th>Price gbp usd</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @material_types.each do |material_type| %>
+      <tr>
+        <td><%= material_type.Material_Number %></td>
+        <td><%= material_type.Description_English %></td>
+        <td><%= material_type.Description_Chinese %></td>
+        <td><%= material_type.manufacturer.Chinese_Name %></td>
+        <td><%= material_type.Price_CLP_RMB %></td>
+        <td><%= material_type.Price_CLP_USD %></td>
+        <td><%= material_type.Price_GBP_USD %></td>
+        <td><%= link_to 'Show', material_type %></td>
+        <td><%= link_to 'Edit', edit_material_type_path(material_type) %></td>
+        <td><%= link_to 'Destroy', material_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Material Type', new_material_type_path %>

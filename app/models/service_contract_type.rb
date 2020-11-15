@@ -1,0 +1,2 @@
+class ServiceContractType < ApplicationRecord
+end

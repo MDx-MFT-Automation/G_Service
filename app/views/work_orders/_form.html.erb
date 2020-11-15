@@ -1,0 +1,66 @@
+<%= form_with(model: work_order, local: true) do |form| %>
+  <% if work_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_order.errors.count, "error") %> prohibited this work_order from being saved:</h2>
+
+      <ul>
+        <% work_order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :Short_Description %>
+    <%= form.text_field :Short_Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :SAP_WorkOrder_Number %>
+    <%= form.text_field :SAP_WorkOrder_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ServiceMax_WorkOrder_Number %>
+    <%= form.text_field :ServiceMax_WorkOrder_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instrument_id %>
+    <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.collection_select(:customer_id, Customer.all, :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_person_id %>
+    <%= form.collection_select(:service_person_id, ServicePerson.all, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :work_order_status_id %>
+    <%= form.collection_select(:work_order_status_id, WorkOrderStatus.all, :id, :Status, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Cost_SAP %>
+    <%= form.text_field :Cost_SAP %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Cost_ServiceMax %>
+    <%= form.text_field :Cost_ServiceMax %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_order: one
+  work_order_duration_type: one
+  Actual_Time: 1.5
+  Actual_Start_Date: 2020-11-10 21:28:54
+  Actual_End_Date: 2020-11-10 21:28:54
+  Description: MyText
+
+two:
+  work_order: two
+  work_order_duration_type: two
+  Actual_Time: 1.5
+  Actual_Start_Date: 2020-11-10 21:28:54
+  Actual_End_Date: 2020-11-10 21:28:54
+  Description: MyText

@@ -1,0 +1,52 @@
+<%= form_with(model: contact_person, local: true) do |form| %>
+  <% if contact_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact_person.errors.count, "error") %> prohibited this contact_person from being saved:</h2>
+
+      <ul>
+        <% contact_person.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :English_Family_Name %>
+    <%= form.text_field :English_Family_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Chinese_Family_Name %>
+    <%= form.text_field :Chinese_Family_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :English_Given_Name %>
+    <%= form.text_field :English_Given_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Chinese_Given_Name %>
+    <%= form.text_field :Chinese_Given_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :English_Middle_Name %>
+    <%= form.text_field :English_Middle_Name %>
+  </div>
+
+  <div class="field">
+  <%= form.label :tag %>
+  <%= form.text_field :tag %>
+  </div>
+
+  <div class="field">
+  <%= form.label :Customer %>
+  <%= form.collection_select(:customer_id, Customer.all, :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

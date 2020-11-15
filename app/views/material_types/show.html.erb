@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material number:</strong>
+  <%= @material_type.Material_Number %>
+</p>
+
+<p>
+  <strong>Description english:</strong>
+  <%= @material_type.Description_English %>
+</p>
+
+<p>
+  <strong>Description chinese:</strong>
+  <%= @material_type.Description_Chinese %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @material_type.manufacturer_id %>
+</p>
+
+<p>
+  <strong>Price clp rmb:</strong>
+  <%= @material_type.Price_CLP_RMB %>
+</p>
+
+<p>
+  <strong>Price clp usd:</strong>
+  <%= @material_type.Price_CLP_USD %>
+</p>
+
+<p>
+  <strong>Price gbp usd:</strong>
+  <%= @material_type.Price_GBP_USD %>
+</p>
+
+<%= link_to 'Edit', edit_material_type_path(@material_type) %> |
+<%= link_to 'Back', material_types_path %>
+<p>
+    <strong>Materials:</strong>
+    <% @material_type.materials.each do |t|%>
+    <%= link_to t.description, material_path(t)%><br>
+    <% end %>
+</p>

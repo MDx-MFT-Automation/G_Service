@@ -1,0 +1,53 @@
+<%= form_with(model: service_contract, local: true) do |form| %>
+  <% if service_contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_contract.errors.count, "error") %> prohibited this service_contract from being saved:</h2>
+
+      <ul>
+        <% service_contract.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :instrument_id %>
+    <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :SAP_ServiceContract_Number %>
+    <%= form.text_field :SAP_ServiceContract_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Start_Date %>
+    <%= form.date_select :Start_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :End_Date %>
+    <%= form.date_select :End_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_contract_type_id %>
+    <%= form.collection_select(:service_contract_type_id, ServiceContractType.all, :id, :Name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Comment %>
+    <%= form.text_area :Comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

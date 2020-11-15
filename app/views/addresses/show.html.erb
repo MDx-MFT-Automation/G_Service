@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @address.city.City_Chinese_Name %>
+</p>
+
+<p>
+  <strong>Address english:</strong>
+  <%= @address.Address_English %>
+</p>
+
+<p>
+  <strong>Address chinese:</strong>
+  <%= @address.Address_Chinese %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

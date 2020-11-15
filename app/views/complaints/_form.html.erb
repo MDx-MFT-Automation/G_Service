@@ -1,0 +1,32 @@
+<%= form_with(model: complaint, local: true) do |form| %>
+  <% if complaint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+
+      <ul>
+        <% complaint.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :SAP_Complaint_Notification_Number %>
+    <%= form.text_field :SAP_Complaint_Notification_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Short_Description %>
+    <%= form.text_field :Short_Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complain_status_id %>
+    <%= form.text_field :complain_status_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

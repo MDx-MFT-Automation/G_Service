@@ -13,7 +13,7 @@
     </p>
     <p>
     <%=form.label :customer_groups %> <br>
-    <%=form.collection_select(:customer_group,CustomerGroup.all,:id,:Customer_Group__Name_English )%>
+    <%=form.collection_select(:customer_gr,CustomerGroup.all,:id,:Customer_Group__Name_English, {include_hidden: false}, {:multiple => true})%>
     </p>
     <p>
         <%=form.submit %>

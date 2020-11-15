@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SAP_WorkOrder_Number: MyString
+  ServiceMax_WorkOrder_Number: MyString
+  instrument: one
+  customer: one
+  service_person: one
+  details: MyText
+  work_order_status: one
+  Cost_SAP: 1.5
+  Cost_ServiceMax: 1.5
+
+two:
+  SAP_WorkOrder_Number: MyString
+  ServiceMax_WorkOrder_Number: MyString
+  instrument: two
+  customer: two
+  service_person: two
+  details: MyText
+  work_order_status: two
+  Cost_SAP: 1.5
+  Cost_ServiceMax: 1.5

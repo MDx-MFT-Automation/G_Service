@@ -1,0 +1,38 @@
+<%= form_with(model: complaint_update, local: true) do |form| %>
+  <% if complaint_update.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(complaint_update.errors.count, "error") %> prohibited this complaint_update from being saved:</h2>
+
+      <ul>
+        <% complaint_update.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :complaint_id %>
+    <%= form.collection_select(:complaint_id, Complaint.all, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_area :Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complain_status_id %>
+    <%= form.collection_select(:complain_status_id, ComplainStatus.all, :id, :Status, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :Last_Updated_On %>
+    <%= form.datetime_select :Last_Updated_On %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

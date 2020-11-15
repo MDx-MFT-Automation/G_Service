@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Contract Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_contract_types.each do |service_contract_type| %>
+      <tr>
+        <td><%= service_contract_type.Name %></td>
+        <td><%= service_contract_type.Description %></td>
+        <td><%= link_to 'Show', service_contract_type %></td>
+        <td><%= link_to 'Edit', edit_service_contract_type_path(service_contract_type) %></td>
+        <td><%= link_to 'Destroy', service_contract_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service Contract Type', new_service_contract_type_path %>

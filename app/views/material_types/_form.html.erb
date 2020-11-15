@@ -1,0 +1,56 @@
+<%= form_with(model: material_type, local: true) do |form| %>
+  <% if material_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material_type.errors.count, "error") %> prohibited this material_type from being saved:</h2>
+
+      <ul>
+        <% material_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Material_Number %>
+    <%= form.text_field :Material_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description_English %>
+    <%= form.text_area :Description_English %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description_Chinese %>
+    <%= form.text_area :Description_Chinese %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufacturer_id %>
+    <%= form.collection_select(:manufacturer_id, Manufacturer.all, :id, :Chinese_Name, {include_hidden: false, :prompt => "George tells you to select"}) %>
+  </div>
+  <div class="field">
+    <%= form.label :product_line_id %>
+    <%= form.collection_select(:product_line_id, ProductLine.all, :id, :Product_Name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price_CLP_RMB %>
+    <%= form.text_field :Price_CLP_RMB %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price_CLP_USD %>
+    <%= form.text_field :Price_CLP_USD %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Price_GBP_USD %>
+    <%= form.text_field :Price_GBP_USD %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

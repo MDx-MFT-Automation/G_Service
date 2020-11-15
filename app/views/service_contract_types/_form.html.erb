@@ -1,0 +1,27 @@
+<%= form_with(model: service_contract_type, local: true) do |form| %>
+  <% if service_contract_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_contract_type.errors.count, "error") %> prohibited this service_contract_type from being saved:</h2>
+
+      <ul>
+        <% service_contract_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_area :Description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

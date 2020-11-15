@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Complaint:</strong>
+  <%= @complaint_update.complaint_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @complaint_update.Description %>
+</p>
+
+<p>
+  <strong>Complain status:</strong>
+  <%= @complaint_update.complain_status_id %>
+</p>
+
+<p>
+  <strong>Last updated on:</strong>
+  <%= @complaint_update.Last_Updated_On %>
+</p>
+
+<%= link_to 'Edit', edit_complaint_update_path(@complaint_update) %> |
+<%= link_to 'Back', complaint_updates_path %>

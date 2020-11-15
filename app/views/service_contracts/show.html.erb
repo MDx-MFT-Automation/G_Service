@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Instrument:</strong>
+  <%= @service_contract.instrument_id %>
+</p>
+
+<p>
+  <strong>Sap servicecontract number:</strong>
+  <%= @service_contract.SAP_ServiceContract_Number %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @service_contract.Start_Date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @service_contract.End_Date %>
+</p>
+
+<p>
+  <strong>Service contract type:</strong>
+  <%= @service_contract.service_contract_type_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @service_contract.price %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @service_contract.Comment %>
+</p>
+
+<%= link_to 'Edit', edit_service_contract_path(@service_contract) %> |
+<%= link_to 'Back', service_contracts_path %>

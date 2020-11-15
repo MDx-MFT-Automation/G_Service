@@ -10,5 +10,13 @@
   <%= @customer_group.Customer_Group__Name_Chinese %>
 </p>
 
+<p>
+    <strong>Customers</strong>
+    <% @customer_group.customers.each do |t|%>
+    <%= link_to t.Chinese_name,customer_path(t) %><br>
+
+    <% end %>
+</p>
+
 <%= link_to 'Edit', edit_customer_group_path(@customer_group) %> |
 <%= link_to 'Back', customer_groups_path %>

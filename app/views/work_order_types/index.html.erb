@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Work Order Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Work type name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_order_types.each do |work_order_type| %>
+      <tr>
+        <td><%= work_order_type.Work_Type_Name %></td>
+        <td><%= link_to 'Show', work_order_type %></td>
+        <td><%= link_to 'Edit', edit_work_order_type_path(work_order_type) %></td>
+        <td><%= link_to 'Destroy', work_order_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work Order Type', new_work_order_type_path %>

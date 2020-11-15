@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Work Order Duration Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sap material number</th>
+      <th>Sap code</th>
+      <th>Sap description</th>
+      <th>Servicemax description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_order_duration_types.each do |work_order_duration_type| %>
+      <tr>
+        <td><%= work_order_duration_type.SAP_Material_Number %></td>
+        <td><%= work_order_duration_type.SAP_Code %></td>
+        <td><%= work_order_duration_type.SAP_Description %></td>
+        <td><%= work_order_duration_type.ServiceMax_Description %></td>
+        <td><%= link_to 'Show', work_order_duration_type %></td>
+        <td><%= link_to 'Edit', edit_work_order_duration_type_path(work_order_duration_type) %></td>
+        <td><%= link_to 'Destroy', work_order_duration_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work Order Duration Type', new_work_order_duration_type_path %>

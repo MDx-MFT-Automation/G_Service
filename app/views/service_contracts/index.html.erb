@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Contracts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Instrument</th>
+      <th>Sap Service Contract Number</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Service contract type</th>
+      <th>Price</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_contracts.each do |service_contract| %>
+      <tr>
+        <td><%= link_to service_contract.instrument.description, instrument_path(service_contract.instrument) %></td>
+        <td><%= service_contract.SAP_ServiceContract_Number %></td>
+        <td><%= service_contract.Start_Date %></td>
+        <td><%= service_contract.End_Date %></td>
+        <td><%= service_contract.service_contract_type_id %></td>
+        <td><%= service_contract.price %></td>
+        <td><%= service_contract.Comment %></td>
+        <td><%= link_to 'Show', service_contract %></td>
+        <td><%= link_to 'Edit', edit_service_contract_path(service_contract) %></td>
+        <td><%= link_to 'Destroy', service_contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service Contract', new_service_contract_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: email, local: true) do |form| %>
+  <% if email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(email.errors.count, "error") %> prohibited this email from being saved:</h2>
+
+      <ul>
+        <% email.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Email_Address %>
+    <%= form.text_field :Email_Address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_person_id %>
+    <%= form.collection_select(:contact_person_id, ContactPerson.all, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

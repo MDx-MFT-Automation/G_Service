@@ -1,0 +1,37 @@
+<%= form_with(model: work_order_duration_type, local: true) do |form| %>
+  <% if work_order_duration_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_order_duration_type.errors.count, "error") %> prohibited this work_order_duration_type from being saved:</h2>
+
+      <ul>
+        <% work_order_duration_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :SAP_Material_Number %>
+    <%= form.text_field :SAP_Material_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :SAP_Code %>
+    <%= form.text_field :SAP_Code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :SAP_Description %>
+    <%= form.text_field :SAP_Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ServiceMax_Description %>
+    <%= form.text_field :ServiceMax_Description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

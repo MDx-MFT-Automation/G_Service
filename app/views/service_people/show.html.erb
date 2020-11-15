@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @service_person.contact_person.display_name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @service_person.comment %>
+</p>
+
+<%= link_to 'Edit', edit_service_person_path(@service_person) %> |
+<%= link_to 'Back', service_people_path %>

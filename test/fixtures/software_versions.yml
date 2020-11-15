@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Software_Name: MyString
+  Version_Number: MyString
+
+two:
+  Software_Name: MyString
+  Version_Number: MyString

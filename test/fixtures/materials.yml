@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Material_Type: one
+  Lot_Or_Serial_Number: MyString
+  Manufacture_Date: 2020-11-04
+  Expiration_Date: 2020-11-04
+  Comment: MyText
+
+two:
+  Material_Type: two
+  Lot_Or_Serial_Number: MyString
+  Manufacture_Date: 2020-11-04
+  Expiration_Date: 2020-11-04
+  Comment: MyText

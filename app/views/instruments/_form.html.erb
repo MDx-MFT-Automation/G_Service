@@ -1,0 +1,42 @@
+<%= form_with(model: instrument, local: true) do |form| %>
+  <% if instrument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instrument.errors.count, "error") %> prohibited this instrument from being saved:</h2>
+
+      <ul>
+        <% instrument.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :material_id %>
+    <%= form.collection_select(:material_id, Material.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Equipment_Number %>
+    <%= form.text_field :Equipment_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Software_Version %>
+    <%= form.collection_select(:software_version_id, SoftwareVersion.all, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
+  </div>
+
+  <div class="field">
+  <%= form.label :Customer %>
+  <%= form.collection_select(:customer_id, Customer.all, :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :commont %>
+    <%= form.text_area :commont %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

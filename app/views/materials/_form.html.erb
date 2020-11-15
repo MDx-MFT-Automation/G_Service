@@ -1,0 +1,42 @@
+<%= form_with(model: material, local: true) do |form| %>
+  <% if material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+      <ul>
+        <% material.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Material_Type_id %>
+    <%= form.collection_select(:material_type_id, MaterialType.all, :id, :Description_English, {include_hidden: false, :prompt => "George tells you to select"}) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Lot_Or_Serial_Number %>
+    <%= form.text_field :Lot_Or_Serial_Number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Manufacture_Date %>
+    <%= form.date_select :Manufacture_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Expiration_Date %>
+    <%= form.date_select :Expiration_Date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Comment %>
+    <%= form.text_area :Comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
