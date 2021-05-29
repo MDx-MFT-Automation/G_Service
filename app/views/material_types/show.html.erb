@@ -17,7 +17,15 @@
 
 <p>
   <strong>Manufacturer:</strong>
-  <%= @material_type.manufacturer_id %>
+  <%= @material_type.manufacturer.English_Name %>
+</p>
+
+
+<p>
+    <strong>Product Line:</strong>
+    <% @material_type.product_lines.each do |t|%>
+    <%= link_to t.Product_Name, product_line_path(t)%><br>
+    <% end %>
 </p>
 
 <p>

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Material:</strong>
-  <%= @instrument.material.description %>
+  <%= link_to @instrument.material.description, material_path(@instrument.material) %>
 </p>
 
 <p>
@@ -10,14 +10,31 @@
   <%= link_to @instrument.Equipment_Number %>
 </p>
 
+<% if @instrument.material_list.present? %>
+  <p>
+    <strong>Material List:</strong><br>
+    <%= @instrument.material_list.materials.each do |t| %>
+    <%= link_to t.description, material_path(t) %> <br><br>
+    <% end %>
+  </p>
+<% end %>
+
 <p>
 <p>
-    <strong>Software Versions</strong>
+    <strong>Software Versions</strong><br>
     <% @instrument.software_versions.each do |t|%>
     <%= link_to t.display_name,software_version_path(t) %> <br>
     <% end %>
 </p>
 <p>
+
+<p>
+    <strong>Service Contract</strong>
+    <br>
+    <% @instrument.service_contracts.each do |t|%>
+    <%= link_to t.description,service_contract_path(t) %> <br>
+    <% end %>
+</p>
     <strong>Customer</strong>
         <%= link_to @instrument.customer.Chinese_name,customer_path(@instrument.customer) %> <br>
   
@@ -25,14 +42,14 @@
 
 <p>
     <strong>Address:</strong>
-    #only show when the address information is available
+   
     <% if @instrument.address.present?%>
         <%= link_to @instrument.address.Address_Chinese, address_path(@instrument.address) %> <br>
     <% end %>
 </p>
 
 <p>
-  <strong>Commont:</strong>
+  <strong>Comment:</strong>
   <%= @instrument.commont %>
 </p>
 

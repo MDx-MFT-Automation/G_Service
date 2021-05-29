@@ -2,7 +2,7 @@
 
 <p>
   <strong>Instrument:</strong>
-  <%= @service_contract.instrument_id %>
+  <%= link_to @service_contract.instrument.description, instrument_path(@service_contract.instrument) %>
 </p>
 
 <p>

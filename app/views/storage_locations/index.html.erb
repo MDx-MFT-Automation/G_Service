@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Storage Locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Storage location name</th>
+      <th>Storage location description</th>
+      <th>Actual location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @storage_locations.each do |storage_location| %>
+      <tr>
+        <td><%= storage_location.storage_location_name %></td>
+        <td><%= storage_location.storage_location_description %></td>
+        <td><%= storage_location.actual_location %></td>
+        <td><%= link_to 'Show', storage_location %></td>
+        <td><%= link_to 'Edit', edit_storage_location_path(storage_location) %></td>
+        <td><%= link_to 'Destroy', storage_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Storage Location', new_storage_location_path %>

@@ -7,7 +7,7 @@
     <%= @customer.Chinese_name%>
 </p>
 <p>
-    <strong>description</strong>
+    <strong>Description</strong>
     <%= @customer.description%>
 </p>
 <p>
@@ -23,7 +23,7 @@
     <% end %>
 </p>
 <p>
-    <strong>Instruments</strong>
+    <strong>Instruments</strong><br>
     <% @customer.instruments.each do |t|%>
     <%= link_to t.description,instrument_path(t) %> <br>
     <% end %>
@@ -32,7 +32,7 @@
 <%= link_to 'Edit', edit_customer_path(@customer) %>
 <%= link_to 'Back', customers_path %>
 <h1> Update </h1>
-<%= render @customer.updates %>
+<%= render @customer.updates.order(:happened_time) %>
 
 <h1> Add an update </h1> <br>
 <%= form_with(model:[@customer, @customer.updates.build], local: true) do |form| %>

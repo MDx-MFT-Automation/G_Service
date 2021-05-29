@@ -21,6 +21,19 @@
 </p>
 
 <p>
+  <%if @material.instrument != nil %>
+      <strong>Customer:</strong>
+      <%= link_to @material.instrument.customer.Chinese_name, customer_path(@material.instrument.customer)%><br>
+  <%end %>
+</p>
+<p>
+  <%if @material.storage_location != nil %>
+    This material is stored at 
+      <%= link_to @material.storage_location.description, storage_location_path(@material.storage_location)%>.<br>
+  <%end %>
+</p>
+
+<p>
   <strong>Comment:</strong>
   <%= @material.Comment %>
 </p>

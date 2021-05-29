@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :complain_status_id %>
-    <%= form.text_field :complain_status_id %>
+     <%= form.collection_select(:complain_status_id, ComplainStatus.order(:Status), :id, :Status, {include_hidden: false, :prompt => "George tells you to select"}) %>
   </div>
 
   <div class="actions">

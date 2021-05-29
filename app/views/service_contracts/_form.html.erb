@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :instrument_id %>
-    <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+    <%= form.collection_select(:instrument_id, Instrument.includes(:material).order("materials.Lot_Or_Serial_Number"), :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
   </div>
 
   <div class="field">

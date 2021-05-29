@@ -44,7 +44,7 @@ class InstrumentsController < ApplicationController
     @instrument=Instrument.find(params[:id])
 
     if params[:instrument][:software_version_id].nil? 
-      @instrument.software_version_id.clear
+      @instrument.software_versions.clear
     else
       @software_version_id = SoftwareVersion.find(params[:instrument][:software_version_id])
       #render plain: @customer_groups.inspect

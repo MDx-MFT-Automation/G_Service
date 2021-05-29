@@ -4,7 +4,7 @@ class ProductLinesController < ApplicationController
   # GET /product_lines
   # GET /product_lines.json
   def index
-    @product_lines = ProductLine.all
+    @product_lines = ProductLine.order(:Product_Name)
   end
 
   # GET /product_lines/1

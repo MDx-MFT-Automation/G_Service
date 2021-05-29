@@ -22,7 +22,7 @@
 
 <p>
   <strong>Service person:</strong>
-  <%= @work_order.service_person.display_name %>
+  <%= link_to @work_order.service_person.display_name,service_person_path(@work_order.service_person) %>
 </p>
 
 <p>
@@ -43,6 +43,9 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Actual Time</th>
+        <th>Work Duration SAP Material Number </th>
+        <th>Work Duration SAP Code  </th>
+        <th>Work Duration SAP Description  </th>
         <th colspan="3"></th>
       </tr>
   </thead>
@@ -52,6 +55,9 @@
           <td><%= t.Actual_Start_Date%></td>
           <td><%= t.Actual_End_Date%></td>
           <td><%= t.Actual_Time%></td>
+          <td><%= t.work_order_duration_type.SAP_Material_Number%></td>
+          <td><%= t.work_order_duration_type.SAP_Code%></td>
+          <td><%= t.work_order_duration_type.SAP_Description%></td>
           <th colspan="3"></th>
         </tr>
       <% end %>

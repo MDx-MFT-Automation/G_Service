@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :storage_locations
+  resources :material_lists
   resources :complaint_updates
   resources :complaints
   resources :complain_statuses

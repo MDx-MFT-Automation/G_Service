@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :Material_Type_id %>
-    <%= form.collection_select(:material_type_id, MaterialType.all, :id, :Description_English, {include_hidden: false, :prompt => "George tells you to select"}) %>
+    <%= form.collection_select(:material_type_id, MaterialType.all.sort{|a, b| a.description <=>b.description}, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}) %>
   </div>
 
   <div class="field">
@@ -35,6 +35,17 @@
     <%= form.label :Comment %>
     <%= form.text_area :Comment %>
   </div>
+
+  <div class="field">
+    <%= form.label :Material_List %>
+    <%= form.collection_select(:material_list_id, MaterialList.all, :id, :name, {include_hidden: false, :prompt => "George tells you to select"}) %>
+  </div>
+
+    <div class="field">
+    <%= form.label :Storage_Location %>
+    <%= form.collection_select(:storage_location_id, StorageLocation.all, :id, :storage_location_name, {include_hidden: false, :prompt => "George tells you to select"}) %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

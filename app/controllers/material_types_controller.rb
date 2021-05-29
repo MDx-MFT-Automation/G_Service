@@ -4,7 +4,7 @@ class MaterialTypesController < ApplicationController
   # GET /material_types
   # GET /material_types.json
   def index
-    @material_types = MaterialType.all
+    @material_types = MaterialType.order(:Description_English)
   end
 
   # GET /material_types/1
@@ -40,11 +40,12 @@ class MaterialTypesController < ApplicationController
   # PATCH/PUT /material_types/1
   # PATCH/PUT /material_types/1.json
   def update
+    #render plain:params[:material_type].inspect
     if params[:material_type][:product_line_id].nil? 
       @material_type.product_line_id.clear
     else
-      @product_line_id = ProductLine.find(params[:material_type][:product_line_id])
-      @material_type.product_lines=@product_line_id
+      @product_line = ProductLine.find(params[:material_type][:product_line_id])
+      @material_type.product_lines=@product_line
     end
     respond_to do |format|
       if @material_type.update(material_type_params)
@@ -75,6 +76,6 @@ class MaterialTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def material_type_params
-      params.require(:material_type).permit(:Material_Number, :Description_English, :Description_Chinese, :manufacturer_id, :Price_CLP_RMB, :Price_CLP_USD, :Price_GBP_USD)
+      params.require(:material_type).permit(:Material_Number, :Description_English, :Description_Chinese, :manufacturer_id, :product_line_id, :Price_CLP_RMB, :Price_CLP_USD, :Price_GBP_USD)
     end
 end

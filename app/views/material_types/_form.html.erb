@@ -32,7 +32,7 @@
   </div>
   <div class="field">
     <%= form.label :product_line_id %>
-    <%= form.collection_select(:product_line_id, ProductLine.all, :id, :Product_Name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
+    <%= form.collection_select(:product_line_id, ProductLine.order(:Product_Name), :id, :Product_Name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
   </div>
 
   <div class="field">

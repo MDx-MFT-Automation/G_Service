@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Storage location name:</strong>
+  <%= @storage_location.storage_location_name %>
+</p>
+
+<p>
+  <strong>Storage location description:</strong>
+  <%= @storage_location.storage_location_description %>
+</p>
+
+<p>
+  <strong>Actual location:</strong>
+  <%= @storage_location.actual_location %>
+</p>
+
+<p>
+  <%if @storage_location.materials.count != 0 %>
+      <strong>Items List </strong>
+      <% @storage_location.materials.each do |t|%>
+      <%= link_to t.material_type.description, material_path(t)%>
+      <% end %> 
+  <% end %>
+</p>
+<p>
+
+<%= link_to 'Edit', edit_storage_location_path(@storage_location) %> |
+<%= link_to 'Back', storage_locations_path %>

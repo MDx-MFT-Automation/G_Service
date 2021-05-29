@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_015802) do
+ActiveRecord::Schema.define(version: 2021_05_05_073424) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "city_id", null: false
@@ -126,6 +126,15 @@ ActiveRecord::Schema.define(version: 2020_11_13_015802) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "material_lists", force: :cascade do |t|
+    t.integer "instrument_id", null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["instrument_id"], name: "index_material_lists_on_instrument_id"
+  end
+
   create_table "material_types", force: :cascade do |t|
     t.string "Material_Number"
     t.text "Description_English"
@@ -136,7 +145,9 @@ ActiveRecord::Schema.define(version: 2020_11_13_015802) do
     t.float "Price_GBP_USD"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_line_id"
     t.index ["manufacturer_id"], name: "index_material_types_on_manufacturer_id"
+    t.index ["product_line_id"], name: "index_material_types_on_product_line_id"
   end
 
   create_table "material_types_product_lines", id: false, force: :cascade do |t|
@@ -152,6 +163,10 @@ ActiveRecord::Schema.define(version: 2020_11_13_015802) do
     t.text "Comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "material_list_id"
+    t.integer "storage_location_id"
+    t.index ["material_list_id"], name: "index_materials_on_material_list_id"
+    t.index ["storage_location_id"], name: "index_materials_on_storage_location_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -208,6 +223,14 @@ ActiveRecord::Schema.define(version: 2020_11_13_015802) do
   create_table "software_versions", force: :cascade do |t|
     t.string "Software_Name"
     t.string "Version_Number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "storage_locations", force: :cascade do |t|
+    t.string "storage_location_name"
+    t.text "storage_location_description"
+    t.text "actual_location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -284,8 +307,12 @@ ActiveRecord::Schema.define(version: 2020_11_13_015802) do
   add_foreign_key "emails", "contact_people"
   add_foreign_key "instruments", "customers"
   add_foreign_key "instruments", "materials"
+  add_foreign_key "material_lists", "instruments"
   add_foreign_key "material_types", "manufacturers"
+  add_foreign_key "material_types", "product_lines"
   add_foreign_key "materials", "Material_Types", column: "material_type_id"
+  add_foreign_key "materials", "material_lists"
+  add_foreign_key "materials", "storage_locations"
   add_foreign_key "phones", "contact_people"
   add_foreign_key "service_contracts", "instruments"
   add_foreign_key "service_contracts", "service_contract_types"

@@ -4,6 +4,12 @@
   <strong>Contact person:</strong>
   <%= @service_person.contact_person.display_name %>
 </p>
+<p>
+  <strong>Work Oreders:</strong>
+  <% @service_person.work_orders.each do |t| %>
+  <%= link_to t.Short_Description,work_order_path(t) %> <br>
+  <% end %>
+</p>
 
 <p>
   <strong>Comment:</strong>

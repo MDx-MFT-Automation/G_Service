@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Instrument:</strong>
+  <%= @material_list.instrument.description %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @material_list.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @material_list.description %>
+</p>
+
+<%= link_to 'Edit', edit_material_list_path(@material_list) %> |
+<%= link_to 'Back', material_lists_path %>

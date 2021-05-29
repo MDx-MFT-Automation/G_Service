@@ -1,5 +1,6 @@
 class Complaint < ApplicationRecord
   belongs_to :complain_status
+  has_many :complaint_updates
 
   def display_name
     

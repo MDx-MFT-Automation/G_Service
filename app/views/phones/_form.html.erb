@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :contact_person_id %>
-    <%= form.collection_select(:contact_person_id, ContactPerson.all, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}) %>
+    <%= form.collection_select(:contact_person_id, ContactPerson.all.sort{|a,b| a.display_name <=> b.display_name}, :id, :display_name, {include_hidden: false, :prompt => "George tells you to select"}) %>
   </div>
 
   <div class="actions">

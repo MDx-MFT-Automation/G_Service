@@ -28,7 +28,7 @@
 
   <div class="field">
   <%= form.label :Instrument %>
-  <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+  <%= form.collection_select(:instrument_id, Instrument.all.sort{|a,b| a.description <=>b.description}, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
   </div>
 
   <div class="actions">

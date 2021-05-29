@@ -40,7 +40,7 @@ class MaterialsController < ApplicationController
   # PATCH/PUT /materials/1
   # PATCH/PUT /materials/1.json
   def update
-    respond_to do |format|
+    respond_to do |format|  
       if @material.update(material_params)
         format.html { redirect_to @material, notice: 'Material was successfully updated.' }
         format.json { render :show, status: :ok, location: @material }
@@ -69,6 +69,6 @@ class MaterialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def material_params
-      params.require(:material).permit(:material_type_id, :Lot_Or_Serial_Number, :Manufacture_Date, :Expiration_Date, :Comment)
+      params.require(:material).permit(:material_type_id, :Lot_Or_Serial_Number, :Manufacture_Date, :Expiration_Date, :Comment, :material_list_id, :storage_location_id )
     end
 end

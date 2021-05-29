@@ -27,12 +27,13 @@
 
   <div class="field">
     <%= form.label :instrument_id %>
-    <%= form.collection_select(:instrument_id, Instrument.all, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+
+    <%= form.collection_select(:instrument_id, Instrument.all.sort{|a, b| a.description <=>b.description}, :id, :description, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
   </div>
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.collection_select(:customer_id, Customer.all, :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
+    <%= form.collection_select(:customer_id, Customer.order(:Chinese_name), :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => false}) %>
   </div>
 
   <div class="field">

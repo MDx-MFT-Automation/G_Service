@@ -1,0 +1,32 @@
+<%= form_with(model: storage_location, local: true) do |form| %>
+  <% if storage_location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(storage_location.errors.count, "error") %> prohibited this storage_location from being saved:</h2>
+
+      <ul>
+        <% storage_location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :storage_location_name %>
+    <%= form.text_field :storage_location_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :storage_location_description %>
+    <%= form.text_area :storage_location_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actual_location %>
+    <%= form.text_area :actual_location %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

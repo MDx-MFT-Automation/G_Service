@@ -43,7 +43,7 @@
 
   <div class="field">
   <%= form.label :Customer %>
-  <%= form.collection_select(:customer_id, Customer.all, :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
+  <%= form.collection_select(:customer_id, Customer.order(:Chinese_name), :id, :Chinese_name, {include_hidden: false, :prompt => "George tells you to select"}, {:multiple => true}) %>
   </div>
 
   <div class="actions">

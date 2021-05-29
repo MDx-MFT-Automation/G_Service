@@ -10,6 +10,8 @@
   <%= @complaint.Short_Description %>
 </p>
 
+
+
 <p>
   <strong>Complain status:</strong>
   <%= @complaint.complain_status_id %>
@@ -17,3 +19,27 @@
 
 <%= link_to 'Edit', edit_complaint_path(@complaint) %> |
 <%= link_to 'Back', complaints_path %>
+
+
+<p>
+  <strong>Updates:</strong>
+  <table>
+  <thead>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th colspan="3"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @complaint.complaint_updates.order("Last_Updated_On").each do |t| %>
+        <tr>
+          <td><%= link_to t.Description, complaint_update_path(t)%></td>
+          <td><%= t.Last_Updated_On%></td>
+          
+          <th colspan="3"></th>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+</p>
